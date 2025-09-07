@@ -1,3 +1,8 @@
+# Layoffs — MySQL Cleaning & Exploratory Pipeline
+
+**End-to-end MySQL scripts to clean and explore the `layoffs` dataset.**  
+This repository contains a reproducible MySQL pipeline that cleans, standardizes, and explores the layoffs dataset to produce validated tables and summary analyses.
+
 # MySQL Data Cleaning — Layoffs Dataset
 
 **Clean, standardize, and prepare the `layoffs` dataset using repeatable MySQL 8+ scripts.**  
@@ -12,3 +17,14 @@ Major transformations implemented in the scripts:
 - **Date conversion:** convert text `date` (format `%m/%d/%Y`) to actual `DATE` type and alter the column.  
 - **Nulls & blanks:** convert empty strings to `NULL`, copy missing `industry` values by joining on company, and delete rows where both `total_laid_off` and `percentage_laid_off` are NULL.  
 - **Schema cleanup:** remove temporary columns (e.g., `row_num`) after validation.
+
+## Exploratory Analysis
+
+After cleaning, the `layoffs_staging2` table is analyzed with a series of reproducible SQL queries to surface key metrics and trends. The exploratory scripts compute summary statistics, top companies/industries/countries by layoffs, temporal trends (monthly and yearly), company-year rankings, and rolling totals.
+
+**Main analysis outputs**
+- Global summary (max layoffs, date range, totals).  
+- Top companies and industries by total layoffs.  
+- Country-level aggregation of layoffs.  
+- Yearly and monthly time series (including cumulative rolling totals).  
+- Top companies per year (ranked lists).  
